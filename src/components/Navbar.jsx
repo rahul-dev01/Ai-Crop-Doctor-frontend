@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Link } from "react-router-dom"
 import logo from "../assets/logo/logo2.gif"
 
-const Navbar = () => {
+const Navbar = ({ isLoggedIn, onLogout }) => {
     const [menuOpen, setMenuOpen] = useState(false);
 
     return (
@@ -16,7 +16,7 @@ const Navbar = () => {
                         <span className="text-green-500">Doctor</span>
                     </h1>
                 </div>
-               
+
                 <div className="md:hidden cursor-pointer" onClick={() => setMenuOpen(!menuOpen)}>
                     {menuOpen ? (
 
@@ -24,7 +24,7 @@ const Navbar = () => {
                             <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                         </svg>
                     ) : (
-                      
+
                         <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
                         </svg>
@@ -38,7 +38,23 @@ const Navbar = () => {
                         <li><Link to="/upload" onClick={() => setMenuOpen(false)}>Upload</Link></li>
                         <li><Link to="/history" onClick={() => setMenuOpen(false)}>History</Link></li>
                         <li><Link to="/help" onClick={() => setMenuOpen(false)}>Help</Link></li>
-                        <li><Link to="/login" onClick={() => setMenuOpen(false)}>Login</Link></li>
+
+                        {!isLoggedIn ? (
+                            <>
+                                <li><Link to="/login" onClick={() => setMenuOpen(false)}>Login</Link></li>
+                            </>
+                        ) :
+                            <>
+                                <li>
+                                    <button
+                                        onClick={() => { onLogout(); setMenuOpen(false); }}
+                                        className="bg-red-500 px-3 py-1 rounded hover:bg-red-800 cursor-pointer"
+                                    >
+                                        Logout
+                                    </button>
+                                </li>
+                            </>
+                        }
                     </ul>
                 </div>
             </nav>

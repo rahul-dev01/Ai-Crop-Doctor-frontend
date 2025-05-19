@@ -1,13 +1,26 @@
 import React from 'react';
 
 import setting from "../assets/image/setting.gif";
-import test from "../assets/image/test2.gif";    
+import test from "../assets/image/test2.gif";
 import mouse from "../assets/image/mouse.gif";
 import camera from "../assets/image/camera.gif";
 import ai from "../assets/image/ai.gif";
 import result from "../assets/image/result.gif";
+import { Link, useNavigate } from 'react-router-dom';
 
-const HomeScreen = () => {
+const HomeScreen = ({ isLoggedIn }) => {
+
+    const navigate = useNavigate();
+
+    const handleStart = () => {
+        if (isLoggedIn) {
+            navigate("/upload")
+        }
+        else {
+            navigate("/login")
+        }
+    }
+
     return (
         <div>
 
@@ -19,7 +32,7 @@ const HomeScreen = () => {
                     <p className="text-lg sm:text-xl md:text-2xl mb-8">
                         Identify plant problems in seconds. Just upload a photo — let AI do the rest!
                     </p>
-                    <button className="bg-white text-green-800  cursor-pointer   px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold rounded shadow hover:bg-gray-400 transition">
+                    <button onClick={handleStart} className="bg-white text-green-800  cursor-pointer   px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold rounded shadow hover:bg-gray-400 transition ">
                         Get Started
                     </button>
                 </div>
@@ -63,7 +76,7 @@ const HomeScreen = () => {
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
                     {[
                         {
-                            icon: <img src={camera} alt="Camera Icon"  className="mx-auto h-12 w-12" />,
+                            icon: <img src={camera} alt="Camera Icon" className="mx-auto h-12 w-12" />,
                             title: 'Upload Photo',
                             desc: 'Take a clear photo of the affected plant part and upload it to our platform.',
                             highlight: true
@@ -75,7 +88,7 @@ const HomeScreen = () => {
                             highlight: true
                         },
                         {
-                            icon: <img src={result} alt="Result Icon"  className="mx-auto h-12 w-12" />,
+                            icon: <img src={result} alt="Result Icon" className="mx-auto h-12 w-12" />,
                             title: 'Get Results',
                             desc: 'Receive detailed diagnosis along with treatment recommendations to address the identified issues.',
                             highlight: true
@@ -101,7 +114,7 @@ const HomeScreen = () => {
                     Join thousands of farmers and gardeners who use AI Crop Doctor to identify and treat plant diseases quickly.
                 </p>
                 <div className="flex flex-col sm:flex-row justify-center gap-4">
-                    <button className="bg-white text-green-800 px-6 py-3 rounded shadow hover:bg-gray-400">
+                    <button onClick={handleStart} className="bg-white text-green-800 px-6 py-3 rounded shadow hover:bg-gray-400 cursor-pointer">
                         Get Started
                     </button>
                 </div>
