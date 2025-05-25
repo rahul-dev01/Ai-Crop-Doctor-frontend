@@ -7,7 +7,7 @@ const Footer = () => {
                 <span className="text-green-500">Doctor</span>
             </div>
             <div className="text-center mt-1">
-                &copy; {new Date().getFullYear()} All Rights Reserved | Rahul-dev
+                &copy; {new Date().getFullYear()}  Rahul-dev | All Rights Reserved
             </div>
         </footer>
     );
