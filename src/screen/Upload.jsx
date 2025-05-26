@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import Result from './Result';
+import Result from '../components/Result';
 
 
 const Upload = () => {

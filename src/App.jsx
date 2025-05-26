@@ -4,7 +4,7 @@ import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import HomeScreen from "./screen/HomeScreen";
 import Login from "./screen/Login";
-import Upload from "./components/Upload";
+import Upload from "./screen/Upload";
 import History from "./screen/History";
 import Help from "./screen/Help";
 import SignUp from "./screen/SignUp";
@@ -14,7 +14,7 @@ function App() {
 
   useEffect(() => {
     const token = localStorage.getItem("token");
-    setIsLoggedIn(!!token);
+    setIsLoggedIn(!!token); 
   }, []);
 
   const handleLogin = () => setIsLoggedIn(true);
