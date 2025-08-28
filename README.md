@@ -39,6 +39,26 @@ Soon....
 - **Framework**: TensorFlow / PyTorch
 
 ---
+# screenshot : 
+
+## Home Screen
+![Home Screenshot](./src/assets/ScreenShot/homePage.png)
+
+## Upload Screen
+![Upload Screenshot](./src/assets/ScreenShot/UploadPage.png)
+
+## Details Screen
+![Details Screenshot](./src/assets/ScreenShot/DetailsPage.png)
+
+## History Screen
+![History Screenshot](./src/assets/ScreenShot/historyPage.png)
+
+## Help Screen
+![History Screenshot](./src/assets/ScreenShot/help.png)
+
+
+
+
 
 ## ⚙️ Getting Started
 
